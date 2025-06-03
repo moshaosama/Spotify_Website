@@ -34,7 +34,7 @@ const Navbar = () => {
               Sign up
             </h1>
             <Link to={"/login"}>
-              <button className="bg-white py-3 px-8 rounded-full cursor-pointer hover:bg-gray-200 transition-all duration-500">
+              <button className="bg-white text-black py-3 px-8 rounded-full cursor-pointer hover:bg-gray-200 transition-all duration-500">
                 Log in
               </button>
             </Link>
