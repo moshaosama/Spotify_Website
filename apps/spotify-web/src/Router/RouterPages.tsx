@@ -2,6 +2,7 @@ import { createBrowserRouter, RouterProvider } from "react-router";
 import MainLayout from "../Layout/MainLayout";
 import Login from "../Pages/Auth/Login";
 import Home from "../Pages/Home";
+import { GetLocalStorageDataProvider } from "../Context/GetLocalStorageDataContext";
 
 const RouterPages = () => {
   const Router = createBrowserRouter([
@@ -11,7 +12,11 @@ const RouterPages = () => {
       children: [
         {
           index: true,
-          element: <Home />,
+          element: (
+            <GetLocalStorageDataProvider>
+              <Home />
+            </GetLocalStorageDataProvider>
+          ),
         },
         {
           path: "/login",
