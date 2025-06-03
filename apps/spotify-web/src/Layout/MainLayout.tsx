@@ -1,12 +1,17 @@
 import { Outlet } from "react-router";
 import Navbar from "./Navbar";
 import { useShowNavbar } from "../Hooks/useShowNavbar";
+import { OpenSidebarProvider } from "../Context/OpenSidebar";
 
 const MainLayout = () => {
   const { showNavbar } = useShowNavbar();
   return (
     <>
-      {showNavbar && <Navbar />}
+      {showNavbar && (
+        <OpenSidebarProvider>
+          <Navbar />
+        </OpenSidebarProvider>
+      )}
       <Outlet />
     </>
   );
