@@ -5,7 +5,7 @@ const FormLogin = () => {
   return (
     <div className="flex justify-center mt-20 text-white">
       <div
-        className="flex flex-col gap-3 items-center justify-center w-1/2 py-3 rounded-xl shadow-2xl"
+        className="flex flex-col gap-3 items-center max-sm:w-[25pc] justify-center w-1/2 py-3 rounded-xl shadow-2xl"
         style={{ backgroundColor: "var(--primary-color)" }}
       >
         <div>
