@@ -3,12 +3,12 @@ import CheckLogin from "../../../Components/CheckLogin";
 import { useGetLocalStorageData } from "../../../Context/GetLocalStorageDataContext";
 
 const Library = () => {
-  const { handleCheckIsToken, isGetToken } = useGetLocalStorageData();
+  const { handleCheckIsToken } = useGetLocalStorageData();
   return (
     <>
       <div
         style={{ backgroundColor: "var(--primary-color)" }}
-        className="w-1/4 p-5 rounded-r-xl h-[56.4pc] max-sm:h-full flex flex-col justify-between  shadow-lg shadow-gray-600 text-white"
+        className="w-1/4 p-5 rounded-r-xl h-[56.4pc]  max-sm:hidden max-2xl:h-[52.9pc] flex flex-col justify-between  shadow-lg shadow-gray-600 text-white"
       >
         <div>
           <div className="flex justify-between items-center ">
