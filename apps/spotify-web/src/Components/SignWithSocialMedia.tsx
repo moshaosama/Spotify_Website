@@ -29,7 +29,7 @@ const SignWithSocialMedia = () => {
           <h1 className="font-bold">Continue with Facebook</h1>
         </div>
       </div>
-      <hr className="h-[1px] w-[30pc] my-5 border-none bg-gray-600" />
+      <hr className="h-[1px] w-[30pc] my-5 border-none bg-gray-600 max-sm:w-[15pc]" />
     </div>
   );
 };
