@@ -1,6 +1,9 @@
 import { IoMdAdd } from "react-icons/io";
+import CheckLogin from "../../../Components/CheckLogin";
+import { useGetLocalStorageData } from "../../../Context/GetLocalStorageDataContext";
 
 const Library = () => {
+  const { handleCheckIsToken, isGetToken } = useGetLocalStorageData();
   return (
     <>
       <div
@@ -13,7 +16,11 @@ const Library = () => {
               <h1 className="text-2xl font-bold">Your Library</h1>
             </div>
             <div>
-              <IoMdAdd size={25} className="text-gray-400" cursor={"pointer"} />
+              <IoMdAdd
+                size={25}
+                className="text-gray-400 hover:text-white transition-all"
+                cursor={"pointer"}
+              />
             </div>
           </div>
           <div className="my-10 bg-neutral-700 p-3 rounded-xl">
@@ -23,7 +30,10 @@ const Library = () => {
                 It's easy — we’ll help you get started.
               </p>
 
-              <button className="bg-white hover:bg-gray-200 transition-all rounded-xl font-bold cursor-pointer text-black py-1 mt-2 w-32">
+              <button
+                onClick={handleCheckIsToken}
+                className="bg-white hover:bg-gray-200 transition-all rounded-xl font-bold cursor-pointer text-black py-1 mt-2 w-32"
+              >
                 Create playlist
               </button>
             </div>
@@ -58,6 +68,11 @@ const Library = () => {
           </div>
         </div>
       </div>
+
+      <CheckLogin
+        Header="Create a playlist"
+        Description="log in to create and share playlists"
+      />
     </>
   );
 };
