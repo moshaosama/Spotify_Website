@@ -9,7 +9,7 @@ const CheckLogin = (props: CheckLoginProps) => {
     <>
       <div
         className={clsx(
-          "bg-sky-500 w-96 rounded-xl transition-all duration-1000 p-5 absolute top-44",
+          "bg-sky-500 w-96 max-sm:hidden rounded-xl transition-all duration-1000 p-5 absolute top-44",
           isGetToken
             ? "opacity-100 left-1/4 pointer-events-auto"
             : "opacity-0 left-1/5 pointer-events-none"
