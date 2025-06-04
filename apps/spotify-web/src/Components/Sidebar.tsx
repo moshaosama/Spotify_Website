@@ -2,9 +2,13 @@ import clsx from "clsx";
 import { useOpenSidebar } from "../Context/OpenSidebar";
 import { IoMdExit } from "react-icons/io";
 import { Link } from "react-router";
+import useSaveUser from "../Hooks/useSaveUser";
+import useHaveUser from "../Hooks/useHaveUser";
 
 const Sidebar = () => {
   const { isOpenSidebar, handleTriggerSidebar } = useOpenSidebar();
+  const { User } = useSaveUser();
+  const { isHaveUser } = useHaveUser();
   return (
     <div
       className={clsx(
@@ -21,8 +25,16 @@ const Sidebar = () => {
         />
       </div>
       <div className="text-white mx-20 font-bold flex flex-col gap-5 text-xl">
-        <Link to={"/login"}>Log in</Link>
-        <h1>Sign up</h1>
+        {isHaveUser ? (
+          <div>
+            {User?.picture}
+          </div>
+        ) : (
+          <div className="flex flex-col gap-5">
+            <Link to={"/login"}>Log in</Link>
+            <h1>Sign up</h1>
+          </div>
+        )}
         <hr className="w-14 rounded-xl my-5 h-1 bg-white" />
       </div>
       <div className="text-white mx-20 font-bold flex flex-col gap-5 text-sm my-10">
