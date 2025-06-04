@@ -18,11 +18,12 @@ export const GetLocalStorageDataProvider = ({
   const [isGetToken, setIsGetToken] = useState(false);
 
   const handleCheckIsToken = () => {
-    const Token = window.localStorage.getItem("Token");
+    const Token = JSON.parse(window.localStorage.getItem("User")!);
     if (Token) {
       setIsGetToken(false);
+    } else {
+      setIsGetToken(true);
     }
-    setIsGetToken(true);
   };
 
   const handleCloseMessage = () => {
