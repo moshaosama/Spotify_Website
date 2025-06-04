@@ -9,15 +9,18 @@ import { useOpenSidebar } from "../Context/OpenSidebar";
 
 import useSaveUser from "../Hooks/useSaveUser";
 import useHaveUser from "../Hooks/useHaveUser";
+import DropDownProfile from "../Components/DropDownProfile";
+import useShowDropDownProfile from "../Hooks/useShowDropDownProfile";
 
 const Navbar = () => {
   const { handleTriggerSidebar } = useOpenSidebar();
   const { isHaveUser } = useHaveUser();
   const { User } = useSaveUser();
+  const { handleTriggerShow, isShow } = useShowDropDownProfile();
 
   return (
     <>
-      <div className="p-4 flex items-center justify-between">
+      <div className="p-4 flex items-center justify-between relative">
         <div>
           <ImSpotify className="text-white text-4xl w-fit" />
         </div>
@@ -56,6 +59,7 @@ const Navbar = () => {
               <div
                 style={{ backgroundColor: "var(--primary-color)" }}
                 className="p-[5px] rounded-full cursor-pointer hover:scale-105 transition-all duration-300"
+                onClick={handleTriggerShow}
               >
                 <img
                   src={User?.picture}
@@ -78,6 +82,7 @@ const Navbar = () => {
           </div>
         </div>
       </div>
+      {isShow && <DropDownProfile />}
     </>
   );
 };
