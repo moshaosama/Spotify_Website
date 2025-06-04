@@ -7,11 +7,17 @@ import { Link } from "react-router";
 import Sidebar from "../Components/Sidebar";
 import { useOpenSidebar } from "../Context/OpenSidebar";
 
+import useSaveUser from "../Hooks/useSaveUser";
+import useHaveUser from "../Hooks/useHaveUser";
+
 const Navbar = () => {
   const { handleTriggerSidebar } = useOpenSidebar();
+  const { isHaveUser } = useHaveUser();
+  const { User } = useSaveUser();
+
   return (
     <>
-      <div className="p-5 flex items-center justify-between">
+      <div className="p-4 flex items-center justify-between">
         <div>
           <ImSpotify className="text-white text-4xl w-fit" />
         </div>
@@ -46,14 +52,29 @@ const Navbar = () => {
               <IoArrowDownCircleSharp size={17} />
               Install App
             </h1>
-            <h1 className="hover:text-white cursor-pointer transition-all duration-300">
-              Sign up
-            </h1>
-            <Link to={"/login"}>
-              <button className="bg-white text-black py-3 px-8 rounded-full cursor-pointer hover:bg-gray-200 transition-all duration-500">
-                Log in
-              </button>
-            </Link>
+            {isHaveUser ? (
+              <div
+                style={{ backgroundColor: "var(--primary-color)" }}
+                className="p-[5px] rounded-full cursor-pointer hover:scale-105 transition-all duration-300"
+              >
+                <img
+                  src={User?.picture}
+                  alt="Profile.png"
+                  className="w-10 object-cover h-10 rounded-full "
+                />
+              </div>
+            ) : (
+              <div className="flex items-center gap-7">
+                <h1 className="hover:text-white cursor-pointer transition-all duration-300">
+                  Sign up
+                </h1>
+                <Link to={"/login"}>
+                  <button className="bg-white text-black py-3 px-8 rounded-full cursor-pointer hover:bg-gray-200 transition-all duration-500">
+                    Log in
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
       </div>
