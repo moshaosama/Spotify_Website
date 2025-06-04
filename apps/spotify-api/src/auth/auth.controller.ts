@@ -23,7 +23,12 @@ export class AuthController {
   @UseGuards(GoogleAuthGuard)
   @Get('google/callback')
   googleCallBack(@Req() req, @Res() res) {
-    return res.redirect('http://localhost:5173/');
+    res.cookie('access_token', JSON.stringify(req.user), {
+      httpOnly: false,
+      maxAge: 3600000,
+      secure: false,
+    });
+    return res.redirect('http://localhost:5173');
   }
 
   @Post('signup')
