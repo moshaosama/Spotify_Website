@@ -62,11 +62,6 @@ export class AuthService {
       sub: existingUser.id,
     });
 
-    console.log({
-      user: existingUser,
-      access_token: Token,
-    });
-
     return {
       user: existingUser,
       access_token: Token,
