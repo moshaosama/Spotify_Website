@@ -8,6 +8,7 @@ import googleAuthConfig from './auth/Config/google-auth.config';
 import { TypeOrmModule } from '@nestjs/typeorm';
 import { JwtModule } from '@nestjs/jwt';
 import { User } from './auth/entities/auth.entity';
+import { SpotifyModule } from './spotify/spotify.module';
 
 @Module({
   imports: [
@@ -29,6 +30,7 @@ import { User } from './auth/entities/auth.entity';
       entities: [User],
       synchronize: true,
     }),
+    SpotifyModule,
   ],
   controllers: [AppController],
   providers: [AppService],
