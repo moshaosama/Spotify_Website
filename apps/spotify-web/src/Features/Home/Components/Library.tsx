@@ -8,7 +8,7 @@ const Library = () => {
     <>
       <div
         style={{ backgroundColor: "var(--primary-color)" }}
-        className="w-1/4 p-5 rounded-r-xl h-[56.4pc]  max-sm:hidden max-2xl:h-[52.9pc] flex flex-col justify-between  shadow-lg shadow-gray-600 text-white"
+        className="w-1/4 p-5 rounded-r-xl h-[51.7pc]  max-sm:hidden max-2xl:h-[47.9pc] flex flex-col justify-between  shadow-lg shadow-gray-600 text-white"
       >
         <div>
           <div className="flex justify-between items-center ">
