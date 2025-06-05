@@ -1,3 +1,4 @@
+import { Link } from "react-router";
 import { LogoSpotify } from "../../../Components/LogoSpotify";
 import SignWithSocialMedia from "../../../Components/SignWithSocialMedia";
 import { useFormState } from "../Hooks/useFormState";
@@ -45,9 +46,12 @@ const FormLogin = () => {
         <div>
           <h1 className="text-[#7C7C7C] font-bold">
             Don't have an account?
-            <span className="text-white underline mx-2 cursor-pointer">
+            <Link
+              to={"/signup"}
+              className="text-white underline mx-2 cursor-pointer"
+            >
               Sign up for Spotify
-            </span>
+            </Link>
           </h1>
         </div>
       </div>
