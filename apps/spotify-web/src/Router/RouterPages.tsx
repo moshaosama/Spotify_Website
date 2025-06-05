@@ -3,6 +3,7 @@ import MainLayout from "../Layout/MainLayout";
 import Login from "../Pages/Auth/Login";
 import Home from "../Pages/Home";
 import { GetLocalStorageDataProvider } from "../Context/GetLocalStorageDataContext";
+import SignUp from "../Pages/Auth/SignUp";
 
 const RouterPages = () => {
   const Router = createBrowserRouter([
@@ -21,6 +22,10 @@ const RouterPages = () => {
         {
           path: "/login",
           element: <Login />,
+        },
+        {
+          path: "/signup",
+          element: <SignUp />,
         },
       ],
     },
