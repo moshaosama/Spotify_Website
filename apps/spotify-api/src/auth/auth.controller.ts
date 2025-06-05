@@ -9,8 +9,8 @@ import {
 } from '@nestjs/common';
 import { AuthService } from './auth.service';
 import { GoogleAuthGuard } from './guards/google-auth.guard';
-import { JwtGuard } from './guards/jwt.guard';
 import { CreateAuthDto } from './dto/create-auth.dto';
+import { LoginAuthDto } from './dto/login-auth.dto';
 
 @Controller('auth')
 export class AuthController {
@@ -34,5 +34,10 @@ export class AuthController {
   @Post('signup')
   SignUp(@Body() user: CreateAuthDto) {
     return this.authService.CreateUser(user);
+  }
+
+  @Post('login')
+  Login(@Body() user: LoginAuthDto) {
+    return this.authService.Login(user);
   }
 }
