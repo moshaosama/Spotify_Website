@@ -1,9 +1,13 @@
-import FormSignUp from "../../../Features/Auth/Componnets/FormSignUp";
+import FormSignUp from "../../../Features/Auth/Components/FormSignUp";
+import { NavigatePages } from "../../../Features/Auth/Components/NavigatePages";
+import { useSignUpContext } from "../../../Features/Auth/Context/SignUpContext";
 
 const SignUp = () => {
+  const { isCreatePassword } = useSignUpContext();
   return (
     <>
-      <FormSignUp />
+      {!isCreatePassword && <FormSignUp />}
+      <NavigatePages />
     </>
   );
 };
