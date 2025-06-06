@@ -1,4 +1,4 @@
-import FormLogin from "../../../Features/Auth/Componnets/FormLogin";
+import FormLogin from "../../../Features/Auth/Components/FormLogin";
 
 const Login = () => {
   return <FormLogin />;
