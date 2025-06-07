@@ -24,6 +24,18 @@ class AuthService {
       return thunkAPI.rejectWithValue(err.message || "Unknown error");
     }
   }
+
+  async SignUp(data: any, thunkAPI: any) {
+    try {
+      let response = await axios.post(
+        "http://localhost:3000/auth/signup",
+        data
+      );
+      return response.data;
+    } catch (err: any) {
+      return thunkAPI.rejectWithValue(err.message || "Unknown error");
+    }
+  }
 }
 
 export const authService = new AuthService();
