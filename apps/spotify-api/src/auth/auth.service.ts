@@ -19,16 +19,6 @@ export class AuthService {
   ) {}
 
   async CreateUser(newuser: CreateAuthDto) {
-    if (
-      !newuser ||
-      !newuser.firstName ||
-      !newuser.lastName ||
-      !newuser.email ||
-      !newuser.picture
-    ) {
-      throw new BadRequestException('All fields are required');
-    }
-
     const newUser = await this.usersRepository.create(newuser);
     await this.usersRepository.save(newUser);
   }
