@@ -24,6 +24,17 @@ const UserAuth = createSlice({
       state.loading = false;
       state.error = action.payload as string;
     });
+    builder.addCase(fetchLogin.pending, (state) => {
+      state.loading = true;
+    });
+    builder.addCase(fetchLogin.fulfilled, (state, action) => {
+      state.loading = true;
+      state.User = action.payload;
+    });
+    builder.addCase(fetchLogin.rejected, (state, action) => {
+      state.loading = false;
+      state.error = action.payload as string;
+    });
   },
 });
 
