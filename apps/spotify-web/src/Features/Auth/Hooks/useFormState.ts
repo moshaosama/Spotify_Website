@@ -11,9 +11,9 @@ export const useFormState = () => {
   } = useForm();
   const dispatch = useDispatch<AppDispatch>();
 
-  const OnSubmit = (data: any) => {
+  const OnSubmitLogin = (data: any) => {
     dispatch(fetchLogin(data));
   };
 
-  return { register, handleSubmit, errors, OnSubmit };
+  return { register, handleSubmit, errors, OnSubmitLogin };
 };
