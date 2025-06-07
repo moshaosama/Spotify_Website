@@ -2,8 +2,10 @@ import { createContext, useContext, useState, type ReactNode } from "react";
 
 interface SignUpContextData {
   isCreatePassword: boolean;
-  handleTriggerCreatePassword: () => void;
-  handleTriggerTellUsYoursef: () => void;
+  handleTriggerCreatePassword: (
+    e?: React.MouseEvent<HTMLButtonElement>
+  ) => void;
+  handleTriggerTellUsYoursef: (e?: React.MouseEvent<HTMLButtonElement>) => void;
   isTellUsYoursef: boolean;
 }
 
@@ -17,12 +19,20 @@ export const SignUpProvider = ({ children }: SignUpProviderProps) => {
   const [isCreatePassword, setIsCreatePassword] = useState(false);
   const [isTellUsYoursef, setIsTellUsYoursef] = useState(false);
 
-  const handleTriggerCreatePassword = () => {
+  const handleTriggerCreatePassword = (
+    e?: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e?.preventDefault();
     setIsCreatePassword(!isCreatePassword);
+    console.log(isCreatePassword);
   };
 
-  const handleTriggerTellUsYoursef = () => {
-    setIsTellUsYoursef(!isTellUsYoursef);
+  const handleTriggerTellUsYoursef = (
+    e?: React.MouseEvent<HTMLButtonElement>
+  ) => {
+    e?.preventDefault();
+    setIsTellUsYoursef((prev) => !prev);
+    console.log(isTellUsYoursef);
   };
 
   return (
