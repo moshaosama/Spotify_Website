@@ -4,4 +4,5 @@ export class CreateAuthDto {
   email: string;
   picture?: string;
   password?: string;
+  Date?: string;
 }
