@@ -4,7 +4,7 @@ import SignWithSocialMedia from "../../../Components/SignWithSocialMedia";
 import { useFormState } from "../Hooks/useFormState";
 
 const FormLogin = () => {
-  const { OnSubmit, errors, handleSubmit, register } = useFormState();
+  const { OnSubmitLogin, errors, handleSubmit, register } = useFormState();
   return (
     <div className="flex justify-center mt-20 text-white">
       <div
@@ -18,7 +18,7 @@ const FormLogin = () => {
           <h1 className="text-3xl font-bold">Log in to Spotify</h1>
         </div>
         <SignWithSocialMedia />
-        <form action="" onSubmit={handleSubmit(OnSubmit)}>
+        <form action="" onSubmit={handleSubmit(OnSubmitLogin)}>
           <p className="flex flex-col gap-1">
             <label htmlFor="Email">Email or username</label>
             <input
