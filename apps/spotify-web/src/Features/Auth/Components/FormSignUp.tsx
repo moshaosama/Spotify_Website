@@ -2,9 +2,17 @@ import { Link } from "react-router";
 import { LogoSpotify } from "../../../Components/LogoSpotify";
 import SignWithSocialMedia from "../../../Components/SignWithSocialMedia";
 import { useSignUpContext } from "../Context/SignUpContext";
+import { useFormContext } from "react-hook-form";
+import { useFormSignUpContext } from "../Context/FormSignUpContext";
 
 const FormSignUp = () => {
   const { handleTriggerCreatePassword } = useSignUpContext();
+  const {
+    register,
+    formState: { errors },
+    handleSubmit,
+  } = useFormContext();
+  const { updateFormData } = useFormSignUpContext();
   return (
     <>
       <div className="flex justify-center mt-10 flex-col items-center gap-4">
@@ -14,24 +22,30 @@ const FormSignUp = () => {
             Sign up to start listening
           </h1>
         </div>
-        <form action="" className="mt-10">
+        <form
+          action=""
+          className="mt-10"
+          onSubmit={handleSubmit((data) => {
+            updateFormData({ email: data.Email });
+            handleTriggerCreatePassword();
+          })}
+        >
           <p className="flex flex-col gap-1">
-            <label htmlFor="Email" className="text-gray-500 font-bold">
+            <label htmlFor="email" className="text-gray-500 font-bold">
               Email Address
             </label>
             <input
               type="text"
-              id=""
               placeholder="Email or username"
               className="border-1 border-gray-300 p-2 w-80 text-gray-300"
+              {...register("email", { required: "Email is required" })}
             />
           </p>
-
+          {errors.email && (
+            <p className="text-red-500">{errors.email.message as string}</p>
+          )}
           <p className="my-4">
-            <button
-              onClick={handleTriggerCreatePassword}
-              className="bg-green-500 cursor-pointer text-black w-80 py-2 rounded-full font-bold"
-            >
+            <button className="bg-green-500 cursor-pointer text-black w-80 py-2 rounded-full font-bold">
               Next
             </button>
           </p>
