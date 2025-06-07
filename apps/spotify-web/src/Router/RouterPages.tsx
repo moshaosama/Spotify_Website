@@ -5,6 +5,7 @@ import Home from "../Pages/Home";
 import { GetLocalStorageDataProvider } from "../Context/GetLocalStorageDataContext";
 import SignUp from "../Pages/Auth/SignUp";
 import { SignUpProvider } from "../Features/Auth/Context/SignUpContext";
+import { FormSignUpProvider } from "../Features/Auth/Context/FormSignUpContext";
 
 const RouterPages = () => {
   const Router = createBrowserRouter([
@@ -28,7 +29,9 @@ const RouterPages = () => {
           path: "/signup",
           element: (
             <SignUpProvider>
-              <SignUp />
+              <FormSignUpProvider>
+                <SignUp />
+              </FormSignUpProvider>
             </SignUpProvider>
           ),
         },
